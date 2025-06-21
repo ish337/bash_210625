@@ -1,9 +1,9 @@
 #!/bin/bash
 
-workdir=$(pwd)
-
 name=$(basename "$0")
 
-bash $workdir/script_log.sh
+workdir=$(pwd)
+
+bash $workdir/script_log.sh "$name"
 
 echo $name

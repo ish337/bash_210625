@@ -1,5 +1,7 @@
 #!/bin/bash
 
+script_name="$1"
+
 log_file="/var/log/scripts"
 user_name=$(whoami)
 current_time=$(date)
@@ -9,4 +11,4 @@ sudo touch "$log_file"
 sudo chmod 744 "$log_file"
 sudo chown $user_name:$user_name /var/log/scripts
 
-echo $current_time $user_name " executed script" >> $log_file
+echo $current_time $user_name " executed script" "$script_name" >> $log_file
