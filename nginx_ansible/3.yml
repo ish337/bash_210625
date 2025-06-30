@@ -1,0 +1,20 @@
+- name: nginx
+  hosts: server
+  become: yes
+
+  tasks:
+    - name: instal_nginx
+      apt:
+        update_cache: yes
+        pkg: nginx
+        state: latest
+    - name: starting_nginx_service
+      service:
+        name: nginx
+        state: started
+    - name: copy_index_file
+      copy:
+        src: index.html
+        dest: /var/www/html 
+        mode: '0644'
+
